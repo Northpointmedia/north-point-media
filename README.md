@@ -1,2 +1,1 @@
-# north-point-media
-North Point Media Group Website
+# North Point Media Group — Website V2
