@@ -1,8 +1,34 @@
 import Reveal from "../components/Reveal";
 import CampaignAssistant from "../components/CampaignAssistant";
-import MediaGallery,{MediaItem} from "../components/MediaGallery";
+import MediaGallery, { MediaItem } from "../components/MediaGallery";
 
-const services=[["OOH & DOOH","Strategic planning and buying across roadside, street furniture, transit, airports and premium digital inventory."],["Experiential","Pop-ups, sampling, mobile tours, brand ambassadors and memorable real-world activations."],["Retail Media","Shopper-focused solutions inside and around pharmacies, supermarkets, malls and lifestyle destinations."],["Digital Marketing","Paid social, search, programmatic display, content amplification and measurable cross-channel campaigns."],["Transit & Airports","High-frequency media solutions across rail, subway, streetcar, airport and commuter environments."],["Production","Creative adaptation, printing, special builds, installation oversight and proof of performance."]];
+const services = [
+  [
+    "OOH & DOOH",
+    "Strategic planning and buying across roadside, street furniture, transit, airports and premium digital inventory.",
+  ],
+  [
+    "Experiential",
+    "Pop-ups, sampling, mobile tours, brand ambassadors and memorable real-world activations.",
+  ],
+  [
+    "Retail Media",
+    "Shopper-focused solutions inside and around pharmacies, supermarkets, malls and lifestyle destinations.",
+  ],
+  [
+    "Digital Marketing",
+    "Paid social, search, programmatic display, content amplification and measurable cross-channel campaigns.",
+  ],
+  [
+    "Transit & Airports",
+    "High-frequency media solutions across rail, subway, streetcar, airport and commuter environments.",
+  ],
+  [
+    "Production",
+    "Creative adaptation, printing, special builds, installation oversight and proof of performance.",
+  ],
+];
+
 const media: MediaItem[] = [
   {
     title: "Times Square Digital Spectacular",
@@ -75,3 +101,302 @@ const media: MediaItem[] = [
       "Data-driven campaign planning, activation, optimization and reporting across digital inventory.",
   },
 ];
+
+export default function HomePage() {
+  return (
+    <main>
+      <header className="nav shell">
+        <a className="brand" href="#top" aria-label="North Point Media Group home">
+          <span className="mark">N</span>
+          <span className="wordmark">
+            <strong>NORTH POINT</strong>
+            <small>INTEGRATED MEDIA GROUP</small>
+          </span>
+        </a>
+
+        <nav>
+          <a href="#services">Services</a>
+          <a href="#formats">Formats</a>
+          <a href="#markets">Markets</a>
+          <a href="#process">Process</a>
+          <a href="#about">About</a>
+          <a className="navButton" href="#contact">
+            Start a Campaign
+          </a>
+        </nav>
+      </header>
+
+      <section id="top" className="hero">
+        <div className="shell heroGrid">
+          <Reveal>
+            <p className="eyebrow">OOH • EXPERIENTIAL • RETAIL • DIGITAL</p>
+            <h1>
+              Real-world media.
+              <br />
+              Local expertise.
+              <br />
+              <em>Measurable impact.</em>
+            </h1>
+            <p className="heroCopy">
+              North Point Media Group helps brands and international agencies
+              plan and execute integrated campaigns across the United States
+              and Canada—from strategy and negotiation through production,
+              activation, digital amplification and proof of performance.
+            </p>
+
+            <div className="actions">
+              <a className="primary" href="#contact">
+                Start a Campaign
+              </a>
+              <a className="secondary" href="#services">
+                Explore Capabilities
+              </a>
+            </div>
+          </Reveal>
+
+          <Reveal className="heroVisualWrap" delay={120}>
+            <div className="heroVisual">
+              <button className="cityCard cardA" type="button">
+                <span>NEW YORK</span>
+                <strong>DOOH</strong>
+              </button>
+              <button className="cityCard cardB" type="button">
+                <span>MIAMI</span>
+                <strong>EXPERIENTIAL</strong>
+              </button>
+              <button className="cityCard cardC" type="button">
+                <span>TORONTO</span>
+                <strong>TRANSIT</strong>
+              </button>
+              <button className="cityCard cardD" type="button">
+                <span>NORTH AMERICA</span>
+                <strong>DIGITAL</strong>
+              </button>
+              <div className="pulse" />
+            </div>
+          </Reveal>
+        </div>
+
+        <div className="heroBreathingSpace" />
+      </section>
+
+      <section className="trust">
+        <div className="shell trustGrid">
+          <div>
+            <span>One trusted partner</span>
+          </div>
+          <div>
+            <b>USA + CANADA</b>
+          </div>
+          <div>
+            <span>Planning through POP</span>
+          </div>
+          <div>
+            <b>OOH • DOOH • BTL • DIGITAL</b>
+          </div>
+        </div>
+      </section>
+
+      <section id="formats" className="visualSection shell">
+        <Reveal>
+          <div className="sectionHeading">
+            <p className="eyebrow">MEDIA SOLUTIONS</p>
+            <h2>See the formats. Explore the possibilities.</h2>
+            <p>
+              Click any visual to explore how each solution can work within an
+              integrated campaign.
+            </p>
+          </div>
+        </Reveal>
+
+        <MediaGallery items={media} />
+      </section>
+
+      <section id="services" className="section shell">
+        <Reveal>
+          <div className="sectionHeading">
+            <p className="eyebrow">CAPABILITIES</p>
+            <h2>Integrated solutions built around the brief.</h2>
+            <p>
+              Flexible, market-specific planning with boutique service,
+              transparent communication and end-to-end accountability.
+            </p>
+          </div>
+        </Reveal>
+
+        <div className="serviceGrid">
+          {services.map(([title, text], index) => (
+            <Reveal key={title} delay={index * 70}>
+              <article className="serviceCard">
+                <span>0{index + 1}</span>
+                <h3>{title}</h3>
+                <p>{text}</p>
+              </article>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      <section id="markets" className="darkSection">
+        <div className="shell marketGrid">
+          <Reveal>
+            <p className="eyebrow light">MARKETS</p>
+            <h2>
+              National reach.
+              <br />
+              Local market intelligence.
+            </h2>
+            <p>
+              Access to leading media owners, digital platforms and production
+              partners across major and secondary markets in the United States
+              and Canada.
+            </p>
+          </Reveal>
+
+          <Reveal delay={120}>
+            <div className="marketPanel">
+              <div>
+                <strong>UNITED STATES</strong>
+                <span>
+                  Miami · New York · Los Angeles · Chicago · Dallas · Houston ·
+                  Las Vegas · San Francisco · San Diego · Orlando
+                </span>
+              </div>
+              <div>
+                <strong>CANADA</strong>
+                <span>
+                  Toronto · Montreal · Vancouver · Calgary · Ottawa · Edmonton
+                </span>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      <section id="process" className="section shell">
+        <Reveal>
+          <div className="sectionHeading compact">
+            <p className="eyebrow">HOW WE WORK</p>
+            <h2>Clear from first brief to final certification.</h2>
+          </div>
+        </Reveal>
+
+        <div className="steps">
+          {[
+            "Brief",
+            "Strategy",
+            "Planning & Negotiation",
+            "Production",
+            "Launch",
+            "POP & Reporting",
+          ].map((item, index) => (
+            <Reveal key={item} delay={index * 90}>
+              <div className="step">
+                <span>{index + 1}</span>
+                <strong>{item}</strong>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      <section className="portalSection">
+        <div className="shell portalGrid">
+          <Reveal>
+            <p className="eyebrow">CLIENT PORTAL — COMING SOON</p>
+            <h2>Campaign visibility beyond the media plan.</h2>
+            <p>
+              Future clients will be able to track production milestones,
+              review live status, download POP photos and access campaign
+              documents from one secure dashboard.
+            </p>
+          </Reveal>
+
+          <Reveal delay={130}>
+            <div className="dashboard">
+              <div className="dashTop">
+                <span>Campaign Dashboard</span>
+                <b>LIVE</b>
+              </div>
+              <div className="dashBody">
+                <div className="metric">
+                  <span>Production</span>
+                  <strong>Complete</strong>
+                </div>
+                <div className="metric">
+                  <span>Installation</span>
+                  <strong>Complete</strong>
+                </div>
+                <div className="metric">
+                  <span>POP Photos</span>
+                  <strong>24 files</strong>
+                </div>
+                <div className="progress">
+                  <i style={{ width: "86%" }} />
+                </div>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      <section id="about" className="section shell about">
+        <Reveal>
+          <p className="eyebrow">ABOUT NORTH POINT</p>
+          <h2>
+            Big-agency expertise.
+            <br />
+            Boutique attention.
+          </h2>
+        </Reveal>
+
+        <Reveal delay={100}>
+          <p>
+            North Point Media Group was created to give brands and
+            international agencies a reliable single point of contact for
+            complex media execution across North America. We combine strategic
+            thinking, transparent communication, hands-on market expertise and
+            integrated offline and digital solutions.
+          </p>
+        </Reveal>
+      </section>
+
+      <section id="contact" className="contact">
+        <div className="shell contactGrid">
+          <Reveal>
+            <p className="eyebrow light">LET&apos;S BUILD SOMETHING REAL</p>
+            <h2>
+              Bring us the brief.
+              <br />
+              We&apos;ll map the solution.
+            </h2>
+          </Reveal>
+
+          <Reveal delay={100}>
+            <button className="contactButton" type="button">
+              Use the Campaign Assistant
+            </button>
+          </Reveal>
+        </div>
+      </section>
+
+      <footer className="shell footer">
+        <div className="brand">
+          <span className="mark">N</span>
+          <span className="wordmark">
+            <strong>NORTH POINT</strong>
+            <small>INTEGRATED MEDIA GROUP</small>
+          </span>
+        </div>
+        <p>
+          OOH • Experiential • Retail • Digital
+          <br />
+          United States & Canada
+        </p>
+        <p>© 2026 North Point Media Group</p>
+      </footer>
+
+      <CampaignAssistant />
+    </main>
+  );
+}
