@@ -1,0 +1,182 @@
+/* REPLACE the existing .mediaGrid / .mediaTile / .mediaTileCopy / modal image rules with these */
+
+.mediaGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.mediaTile {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid #ded8cf;
+  border-radius: 22px;
+  background: #ffffff;
+  text-align: left;
+  cursor: pointer;
+  box-shadow: 0 14px 35px rgba(16, 24, 32, 0.06);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.mediaTile:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 24px 55px rgba(16, 24, 32, 0.12);
+}
+
+.mediaImageFrame {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1.2 / 1;
+  overflow: hidden;
+  background: #101820;
+}
+
+/*
+  The source renders contain text in their lower area.
+  Enlarging and positioning the image at the top crops that embedded text
+  while preserving the actual media visualization.
+*/
+.mediaImageFrame img {
+  width: 100%;
+  height: 126%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.mediaTile:hover .mediaImageFrame img {
+  transform: scale(1.035);
+}
+
+.mediaTileCopy {
+  position: static;
+  display: flex;
+  flex-direction: column;
+  min-height: 142px;
+  padding: 21px 22px 23px;
+  color: var(--ink);
+  background: #ffffff;
+}
+
+.mediaTileCopy small {
+  margin-bottom: 8px;
+  color: var(--blue);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+}
+
+.mediaTileCopy strong {
+  margin-bottom: 15px;
+  font-size: 22px;
+  line-height: 1.08;
+}
+
+.mediaTileCopy > span {
+  margin-top: auto;
+  color: #53606a;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.mediaOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(8, 13, 18, 0.72);
+}
+
+.mediaModal {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  width: min(980px, 100%);
+  overflow: hidden;
+  border-radius: 28px;
+  background: var(--paper);
+}
+
+.mediaModalImage {
+  display: block;
+  min-height: 520px;
+  overflow: hidden;
+  background: #101820;
+}
+
+.mediaModalImage img {
+  width: 100%;
+  height: 120%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+.mediaModalCopy {
+  padding: 45px;
+}
+
+.mediaModalCopy h3 {
+  margin: 0 0 18px;
+  font-size: 38px;
+}
+
+.mediaModalCopy p {
+  margin-bottom: 28px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.mediaClose {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  z-index: 2;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 50%;
+  background: #ffffff;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+@media (max-width: 900px) {
+  .mediaGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .mediaGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .mediaImageFrame {
+    aspect-ratio: 1.28 / 1;
+  }
+
+  .mediaTileCopy {
+    min-height: 126px;
+  }
+
+  .mediaModal {
+    grid-template-columns: 1fr;
+    max-height: calc(100vh - 32px);
+    overflow-y: auto;
+  }
+
+  .mediaModalImage {
+    min-height: 290px;
+    max-height: 340px;
+  }
+
+  .mediaModalCopy {
+    padding: 28px;
+  }
+}
